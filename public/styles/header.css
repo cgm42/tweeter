@@ -5,7 +5,7 @@
   align-items: center;
   background-color: #2e8bc0;
   background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
-  margin-top: 80px;
+  margin-top: 70px;
 }
 .profile-image {
 }
@@ -17,4 +17,25 @@
   80% {
     transform: translate3d(-1px, -1px, -1px);
   }
+}
+
+.nav-bar-notification {
+  width: 50%;
+  left: 25%;
+  padding: 15px 0;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border: solid rgb(233, 6, 6);
+  border-width: 0px 0px 0px 10px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 16px;
+  text-transform: capitalize;
+  background-color: rgb(233, 144, 144);
+  position: fixed;
+  top: -50px;
+  transition: top 0.25s, background-color 0.25s, color 0.25s;
+
+  display: block;
+  top: 0;
 }

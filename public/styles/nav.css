@@ -1,11 +1,11 @@
 nav {
   background-color: #0c2d48;
   color: #ffffff;
-  padding: 1.1em 1.2em 1.2em 1.2em;
+  padding: 0.8em 1.2em 1.2em 1.2em;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  height: 80px;
+  height: 70px;
   position: fixed;
   top: 0;
   width: 100%;

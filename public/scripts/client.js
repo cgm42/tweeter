@@ -50,12 +50,28 @@ const loadTweets = () => {
 
 $('.new-tweet form').on('submit', function(){
   event.preventDefault(); 
-  console.log( $( this ).serialize() );
+  if (!this[0].value.length) {
+    displayError('No content! Bla?')
+    return;
+  }
+  if (this[0].value.length > 140) {
+    displayError('Content limited to 140 characters! Delete some words!')
+    return;
+  }
   const data = $( this ).serialize();
   $.ajax(`/tweets/`, {method: 'POST', data});
   loadTweets();
 })
 
+const displayError = (msg) => {
+  const $alert = $('#alert')
+  $alert.addClass('nav-bar-notification')
+  $alert.text(msg);
+  setTimeout(function() {
+    $alert.removeClass('nav-bar-notification');
+    $alert.text('');
+  }, 3000);
+}
 
 loadTweets();
 })
