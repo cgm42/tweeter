@@ -4,6 +4,7 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
 */
 $(document).ready(function() {
+
   const escape = function (str) {
     let div = document.createElement("div");
     div.appendChild(document.createTextNode(str));
@@ -67,6 +68,14 @@ $('.new-tweet form').on('submit', function(){
   const data = $( this ).serialize();
   $.ajax(`/tweets/`, {method: 'POST', data});
   loadTweets();
+})
+
+$('.write-tweet-section').on('mouseover', () => {
+  $('.arrow').addClass('arrow-dance');
+})
+
+$('.write-tweet-section').on('mouseout', () => {
+  $('.arrow').removeClass('arrow-dance');
 })
 
 const displayError = (msg) => {

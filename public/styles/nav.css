@@ -34,3 +34,19 @@ nav {
   color: red;
   align-self: center;
 }
+
+.arrow-dance {
+  animation: UpDown 1s linear infinite;
+  position: absolute;
+}
+@keyframes UpDown {
+  0% {
+    bottom: 0;
+  }
+  50% {
+    bottom: 0.2em;
+  }
+  100% {
+    bottom: 0;
+  }
+}
