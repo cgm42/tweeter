@@ -4,9 +4,15 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
 */
 $(document).ready(function() {
+  const escape = function (str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
+
 
 const createTweetElement = function(tweet) {
-  const markup = ` <div class='tweet-container'>
+  const markup = `<div class='tweet-container'>
   <header class='article-tweet header'>
   <div class='article-tweet header name'>
     <i class="fas fa-user-ninja icon"></i>
@@ -15,7 +21,7 @@ const createTweetElement = function(tweet) {
   <label class='article-tweet header tag'>${tweet.user.handle}</label>
 </header>
 <article class='article-tweet main'>
-${tweet.content.text}
+${escape(tweet.content.text)}
 </article>
 <footer class='article-tweet footer'>
   <label>${timeago.format(tweet.created_at)}</label>
@@ -65,12 +71,12 @@ $('.new-tweet form').on('submit', function(){
 
 const displayError = (msg) => {
   const $alert = $('#alert')
-  $alert.addClass('nav-bar-notification')
+  $alert.addClass('notification')
   $alert.text(msg);
   setTimeout(function() {
-    $alert.removeClass('nav-bar-notification');
+    $alert.removeClass('notification');
     $alert.text('');
-  }, 3000);
+  }, 2700);
 }
 
 loadTweets();
