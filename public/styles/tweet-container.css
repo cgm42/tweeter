@@ -6,7 +6,7 @@
 .tweet-container {
   border: 3px solid;
   margin: 10px 0px;
-  width: 80%;
+  width: 100%;
   /* transition: box-shadow 0.3s; */
 }
 .tweet-container:hover {
