@@ -14,7 +14,7 @@ $(document).ready(function () {
     const markup = `<div class='tweet-container'>
                       <header class='article-tweet header'>
                         <div class='article-tweet header name'>
-                          <i class="fas fa-user-ninja icon"></i>
+                          <img src='${tweet.user.avatars}'>
                           <label class='name-text'>${tweet.user.name}</label>
                         </div>
                         <label class='article-tweet header tag'>${
@@ -37,9 +37,6 @@ $(document).ready(function () {
   };
 
   const renderTweet = (tweetArr) => {
-    // loops through tweets
-    // calls createTweetElement for each tweet
-    // takes return value and appends it to the tweets container
     $(".tweets-container").empty();
     for (const tweet of tweetArr) {
       const $tweet = createTweetElement(tweet);
