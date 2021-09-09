@@ -62,8 +62,7 @@ $(document).ready(function () {
       );
     const data = $(event.target).serialize();
     $(event.target)[0].reset();
-    $.ajax(`/tweets`, { method: "POST", data });
-    loadTweets();
+    $.ajax(`/tweets`, { type: "POST", data, success: loadTweets });
   });
 
   //display error on new tweet form
