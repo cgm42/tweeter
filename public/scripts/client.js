@@ -46,6 +46,7 @@ $(document).ready(function () {
   };
 
   const loadTweets = () => {
+    $(".counter").val(140);
     $.ajax("/tweets").then((tweets) => renderTweet(tweets));
   };
 
