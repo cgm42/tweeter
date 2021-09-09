@@ -3,7 +3,7 @@
   <head>
     <!-- Meta Information -->
     <title>Tweeter - Home Page</title>
-
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
     <!-- External CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" type="text/css" />
 
@@ -45,8 +45,8 @@
     </div>
     </nav>
 
-    <header>
-      <div class='below-nav'>
+    <div class='below-nav'>
+    <header class='header-bar'>
       <div>
           <img class='profile-image' src="/images/profile-hex.png"> 
       </div>
@@ -54,7 +54,7 @@
       <div>
           <h2>Your Name</h2>
       </div>
-    </div>
+    
   </header>
     <!-- Page-specific (main) content here -->
     <main class="container">
@@ -74,6 +74,6 @@
       </section>
       <button id='page-scroll-button'><i class="fas fa-angle-double-up"></i></button>
   </main>
-
+</div>
   </body>
 </html>

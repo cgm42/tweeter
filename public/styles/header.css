@@ -3,8 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #2e8bc0;
-  background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
+
   margin-top: 70px;
 }
 .profile-image {
@@ -18,3 +17,23 @@
     transform: translate3d(-1px, -1px, -1px);
   }
 }
+.header-bar {
+  background-color: #2e8bc0;
+  background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+@media only screen and (min-width: 1024px) {
+  .below-nav{
+    flex-direction: row;
+    background-color: transparent;
+    justify-content: center;
+    align-items: center;
+  }
+  .header-bar{
+    padding: 2% 6% 0% 6%;
+    margin: 5%;
+  }
+
