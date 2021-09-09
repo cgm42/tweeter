@@ -11,3 +11,32 @@
 p {
   text-align: justify;
 }
+
+#page-scroll-button {
+  background-color: red;
+  color: #f4f1ec;
+  right: 10px;
+  bottom: 10px;
+  width: 60px;
+  height: 60px;
+  position: fixed;
+  border-radius: 50%;
+  border: 0px;
+  display: none;
+}
+
+#page-scroll-button:hover {
+  animation: UpDown 3s linear infinite;
+}
+
+@keyframes UpDown {
+  0%,
+  50%,
+  100% {
+    bottom: 0;
+  }
+  30%,
+  70% {
+    bottom: 0.3em;
+  }
+}

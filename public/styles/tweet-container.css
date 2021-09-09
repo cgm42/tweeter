@@ -46,6 +46,7 @@
 
 .article-tweet.header.name > .name-text {
   margin-left: 15%;
+  flex-shrink: 0;
 }
 
 .article-tweet.header.name > .icon {

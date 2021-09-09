@@ -2,91 +2,98 @@
  * Client-side JS logic goes here
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
-*/
-$(document).ready(function() {
-
-  const escape = function (str) {
-    let div = document.createElement("div");
-    div.appendChild(document.createTextNode(str));
-    return div.innerHTML;
+ */
+$(document).ready(function () {
+  const createTweetElement = function (tweet) {
+    //escape function to avoid XSS attack
+    const escape = function (str) {
+      let div = document.createElement("div");
+      div.appendChild(document.createTextNode(str));
+      return div.innerHTML;
+    };
+    const markup = `<div class='tweet-container'>
+                      <header class='article-tweet header'>
+                        <div class='article-tweet header name'>
+                          <i class="fas fa-user-ninja icon"></i>
+                          <label class='name-text'>${tweet.user.name}</label>
+                        </div>
+                        <label class='article-tweet header tag'>${
+                          tweet.user.handle
+                        }</label>
+                      </header>
+                      <article class='article-tweet main'>
+                        ${escape(tweet.content.text)}
+                      </article>
+                      <footer class='article-tweet footer'>
+                        <label>${timeago.format(tweet.created_at)}</label>
+                        <div>
+                          <i class="fas fa-flag"></i>
+                          <i class="fas fa-retweet"></i>
+                          <i class="fas fa-heart"></i>
+                        </div>
+                      </footer>
+                    </div>`;
+    return markup;
   };
 
-
-const createTweetElement = function(tweet) {
-  const markup = `<div class='tweet-container'>
-  <header class='article-tweet header'>
-  <div class='article-tweet header name'>
-    <i class="fas fa-user-ninja icon"></i>
-    <label class='name-text'>${tweet.user.name}</label>
-  </div>
-  <label class='article-tweet header tag'>${tweet.user.handle}</label>
-</header>
-<article class='article-tweet main'>
-${escape(tweet.content.text)}
-</article>
-<footer class='article-tweet footer'>
-  <label>${timeago.format(tweet.created_at)}</label>
-  <div>
-    <i class="fas fa-flag"></i>
-    <i class="fas fa-retweet"></i>
-    <i class="fas fa-heart"></i>
-  </div>
-</footer>
-</div>`
-return markup;
-}
-
-const renderTweet = (tweetArr) => {
-  // loops through tweets
-  // calls createTweetElement for each tweet
-  // takes return value and appends it to the tweets container
-  $('.tweets-container').empty();
-  for (const tweet of tweetArr) {
-    const $tweet = createTweetElement(tweet);
-    $('.tweets-container').append($tweet);
-  }
-}
-
-
-const loadTweets = () => {
-  $.ajax('/tweets', {method: 'GET'})
-  .then(function (tweets) {
-    renderTweet(tweets.reverse());
-  })
-}
-
-$('.new-tweet form').on('submit', function(){
-  event.preventDefault(); 
-  if (!this[0].value.length) {
-    displayError('No content! Bla?')
+  const renderTweet = (tweetArr) => {
+    // loops through tweets
+    // calls createTweetElement for each tweet
+    // takes return value and appends it to the tweets container
+    $(".tweets-container").empty();
+    for (const tweet of tweetArr) {
+      const $tweet = createTweetElement(tweet);
+      $(".tweets-container").prepend($tweet);
+    }
     return;
-  }
-  if (this[0].value.length > 140) {
-    displayError('Content limited to 140 characters! Delete some words!')
-    return;
-  }
-  const data = $( this ).serialize();
-  $.ajax(`/tweets/`, {method: 'POST', data});
+  };
+
+  const loadTweets = () => {
+    $.ajax("/tweets").then((tweets) => renderTweet(tweets));
+  };
+
+  //submit a new tweet via form
+  $(".new-tweet form").on("submit", (event) => {
+    event.preventDefault();
+    if (!event.target[0].value.length) return displayError("No content! Bla?");
+    if (event.target[0].value.length > 140)
+      return displayError(
+        "Content limited to 140 characters! Delete some words!"
+      );
+    const data = $(event.target).serialize();
+    $(event.target)[0].reset();
+    $.ajax(`/tweets`, { method: "POST", data });
+    loadTweets();
+  });
+
+  //display error on new tweet form
+  const displayError = (msg) => {
+    const $alert = $("#alert");
+    $alert.addClass("notification");
+    $alert.text(msg);
+    setTimeout(function () {
+      $alert.removeClass("notification");
+      $alert.text("");
+    }, 2700);
+  };
+
+  //"Write a new tweet" arrow animation
+  $(".write-tweet-section").on("mouseover", () => {
+    $(".arrow").addClass("arrow-dance");
+  });
+
+  $(".write-tweet-section").on("mouseout", () => {
+    $(".arrow").removeClass("arrow-dance");
+  });
+
+  //New tweet form toggle
+  $(".write-tweet-section").on("click", () => {
+    if ($(".new-tweet").first().is(":hidden")) {
+      $(".new-tweet").slideDown("slow");
+    } else {
+      $(".new-tweet").hide();
+    }
+  });
+
   loadTweets();
-})
-
-$('.write-tweet-section').on('mouseover', () => {
-  $('.arrow').addClass('arrow-dance');
-})
-
-$('.write-tweet-section').on('mouseout', () => {
-  $('.arrow').removeClass('arrow-dance');
-})
-
-const displayError = (msg) => {
-  const $alert = $('#alert')
-  $alert.addClass('notification')
-  $alert.text(msg);
-  setTimeout(function() {
-    $alert.removeClass('notification');
-    $alert.text('');
-  }, 2700);
-}
-
-loadTweets();
-})
+});
