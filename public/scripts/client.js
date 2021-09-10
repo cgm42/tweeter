@@ -3,10 +3,10 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
-$(document).ready(function () {
-  const createTweetElement = function (tweet) {
+$(document).ready(function() {
+  const createTweetElement = function(tweet) {
     //escape function to avoid XSS attack
-    const escape = function (str) {
+    const escape = function(str) {
       let div = document.createElement("div");
       div.appendChild(document.createTextNode(str));
       return div.innerHTML;
@@ -18,8 +18,8 @@ $(document).ready(function () {
                           <label class='name-text'>${tweet.user.name}</label>
                         </div>
                         <label class='article-tweet header tag'>${
-                          tweet.user.handle
-                        }</label>
+  tweet.user.handle
+}</label>
                       </header>
                       <article class='article-tweet main'>
                         ${escape(tweet.content.text)}
@@ -65,7 +65,7 @@ $(document).ready(function () {
     const $alert = $("#alert");
     $alert.addClass("notification");
     $alert.text(msg);
-    setTimeout(function () {
+    setTimeout(function() {
       $alert.removeClass("notification");
       $alert.text("");
     }, 2700);

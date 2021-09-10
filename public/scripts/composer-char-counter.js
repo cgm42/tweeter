@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function() {
   // --- our code goes here ---
   $("#tweet-text").on("input", () => {
     const count = 140 - $("#tweet-text")[0].textLength;

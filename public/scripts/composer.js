@@ -1,5 +1,5 @@
 $(() => {
-  $(window).scroll(function (e) {
+  $(window).scroll(function(e) {
     e.preventDefault();
     const scrollTop = $(this).scrollTop();
     if (scrollTop > 300) {
