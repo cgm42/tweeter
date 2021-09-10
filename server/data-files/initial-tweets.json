@@ -8,7 +8,7 @@
     "content": {
       "text": "If I have seen further it is by standing on the shoulders of giants"
     },
-    "created_at": 1631064891254
+    "created_at": 1630987282216
   },
   {
     "user": {
@@ -19,6 +19,17 @@
     "content": {
       "text": "Je pense , donc je suis"
     },
-    "created_at": 1631151291254
+    "created_at": 1631073682216
+  },
+  {
+    "user": {
+      "name": "Carrie G",
+      "avatars": "https://i.imgur.com/v0JXau2.png",
+      "handle": "@cgm42"
+    },
+    "content": {
+      "text": "Idea for a Chrome extension: A web dev tool that highlights altered styles and scripts in the dev console. Saves/alerts before reloading."
+    },
+    "created_at": 1631160082216
   }
 ]

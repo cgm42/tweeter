@@ -43,6 +43,7 @@
   padding-bottom: 2%;
   margin: 6% 3% 2% 3%;
   overflow-wrap: break-word;
+  font-size: 100%;
 }
 
 .article-tweet.header.name > .name-text {
@@ -69,9 +70,23 @@
   color: #5e6572;
 }
 
-@media only screen and (min-width: 1024px) {
+@media only screen and (max-width: 420px) {
   .tweet-container {
     font-size: 16px;
+    margin-top: 10.8%;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  .tweet-container {
+    font-size: 22px;
+    margin-top: 10.8%;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .tweet-container {
+    font-size: 24px;
     margin-top: 10.8%;
   }
 }
