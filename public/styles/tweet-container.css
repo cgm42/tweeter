@@ -26,14 +26,14 @@
 }
 
 .article-tweet.footer {
-  font-size: 16px;
+  font-size: 60%;
   display: flex;
   justify-content: space-between;
-  padding: 0% 2% 3% 2%;
+  padding: 0% 3% 3% 3%;
 }
 
 .article-tweet.header.name {
-  font-size: 4.2vw;
+  font-size: 82%;
   padding: 3% 0% 0% 2%;
 }
 
@@ -42,6 +42,7 @@
   border-bottom: solid 3px;
   padding-bottom: 2%;
   margin: 6% 3% 2% 3%;
+  overflow-wrap: break-word;
 }
 
 .article-tweet.header.name > .name-text {
@@ -57,7 +58,7 @@
 .article-tweet.header.tag {
   margin: 3% 2% 0% 0%;
   color: rgba(158, 152, 152, 0.562);
-  font-size: large;
+  font-size: 80%;
 }
 
 .fas:hover {
@@ -71,5 +72,6 @@
 @media only screen and (min-width: 1024px) {
   .tweet-container {
     font-size: 16px;
+    margin-top: 10.8%;
   }
 }

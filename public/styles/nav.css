@@ -36,7 +36,7 @@ nav {
 }
 
 .arrow-dance {
-  animation: UpDown 1s linear infinite;
+  animation: UpDown 3.5s linear infinite;
   position: absolute;
 }
 @keyframes UpDown {

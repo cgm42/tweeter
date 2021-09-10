@@ -53,11 +53,8 @@ $(document).ready(function () {
   //submit a new tweet via form
   $(".new-tweet form").on("submit", (event) => {
     event.preventDefault();
-    if (!event.target[0].value.length) return displayError("No content! Bla?");
-    if (event.target[0].value.length > 140)
-      return displayError(
-        "Content limited to 140 characters! Delete some words!"
-      );
+    if (!event.target[0].value.length) return displayError("No content!");
+    if (event.target[0].value.length > 140) return displayError("Too long!");
     const data = $(event.target).serialize();
     $(event.target)[0].reset();
     $.ajax(`/tweets`, { type: "POST", data, success: loadTweets });
@@ -87,8 +84,10 @@ $(document).ready(function () {
   $(".write-tweet-section").on("click", () => {
     if ($(".new-tweet").first().is(":hidden")) {
       $(".new-tweet").slideDown("slow");
+      $("#tweet-text").show().focus();
     } else {
-      $(".new-tweet").hide();
+      $(".new-tweet").slideUp("medium");
+      //$(".new-tweet").hide();
     }
   });
 
