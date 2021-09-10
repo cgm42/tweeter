@@ -12,14 +12,14 @@ Tweeter is a simple, single-page Twitter clone.
 
 ## Features
 
-This mobile friendly application is a microblogging platform on which users can post short (up to 140 characters) messages known as "tweets".
+This mobile-friendly web application is a microblogging platform on which users can post short (up to 140 characters) messages known as "tweets".
 
 All features as outlined in the project requirements are implemented, including **stretch components**:
 
 - The navigation bar compose button toggles the hidden compose tweet box.
 - The compose tweet box slides down and the text-area auto-focuses.
-- The navigation bar compose button hides using a slide up animation the tweet box on click if it's currently showing.
-- When a user scrolls down on the page, a second button appears in the lower right hand corner.
+- The navigation bar compose button hides the tweet box using a slide-up animation on click, if the tweet box is showing.
+- When a user scrolls down on the page, a second button appears in the lower right-hand corner.
 - If the user clicks this button, they are brought back up to the top of the page.
 
 ## Final Product
@@ -48,7 +48,7 @@ All features as outlined in the project requirements are implemented, including 
 ## Dev dependencies
 
 - nodemon
-- EsLint
+- ESLint
 - sass
 
 ## Getting Started
